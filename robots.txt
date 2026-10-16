@@ -1,0 +1,5 @@
+# All crawlers, including AI assistants (GPTBot, ClaudeBot, PerplexityBot, Google-Extended), are welcome.
+User-agent: *
+Allow: /
+
+Sitemap: https://agenttested-hq.github.io/agenttested/sitemap.xml

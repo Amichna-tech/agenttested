@@ -1,0 +1,18 @@
+:root{--bg:#0b0d12;--card:#141821;--line:#232a36;--txt:#e7ebf2;--mut:#93a0b4;--acc:#7cf29c;--acc2:#7aa7ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc2)}.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:800;color:var(--txt);text-decoration:none}.logo span{color:var(--acc)}nav a{color:var(--mut);margin-left:18px;text-decoration:none}nav a:hover{color:var(--txt)}
+.hero{padding:72px 0 40px}.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:0 0 16px}.hero p{color:var(--mut);font-size:1.15rem;max-width:640px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.badge{display:inline-block;font-size:.8rem;padding:3px 10px;border-radius:99px;background:#2a2410;color:#ffd166;border:1px solid #5a4a14}
+.soon{background:#13202e;color:var(--acc2);border-color:#24405e}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mut);font-weight:600;font-size:.85rem}
+.yes{color:var(--acc)}.no{color:#ff8a8a}.mut{color:var(--mut)}
+input,button{font:inherit;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#0f131a;color:var(--mut)}button{opacity:.6}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--mut);font-size:.9rem}
+@media(max-width:640px){.hide-sm{display:none}}
+.btn{display:inline-block;background:var(--acc);color:#0b0d12;font-weight:700;padding:12px 18px;border-radius:10px;text-decoration:none}.btn:hover{filter:brightness(1.1)}
+.score{font-size:1.4rem;color:var(--acc)}.sm{font-size:.82rem;line-height:1.4;margin-top:4px}
+.warn{border-color:#5a4a14;background:#1a170c}

@@ -1,0 +1,208 @@
+{
+  "updated": "2026-10-16",
+  "leaderboards": [
+    {
+      "slug": "ai-coding-agents",
+      "title": "Best AI coding agents",
+      "status": "Round 1 testing in progress",
+      "note": "Scored tools ran our standard task on 2026-10-15 or 2026-10-16 (see the test write-up). The AI model differs between tools (Copilot: gpt-6-luna, Cursor CLI: Composer 2.5, Aider and Cline: gemini-3.8-flash, Bolt.new: its Free-plan default), and the model affects the score, so treat cross-tool comparisons with care. Untested tools are listed alphabetically below. Pricing facts checked on official sites on 2026-10-15/16.",
+      "tools": [
+        {
+          "name": "GitHub Copilot",
+          "url": "https://github.com/features/copilot",
+          "free_tier": "Yes",
+          "pricing": "Copilot Free + paid plans",
+          "description": "GitHub's AI coding assistant and agent for editors, the CLI and pull requests.",
+          "score": 99,
+          "status": "Tested",
+          "test": {
+            "date": "2026-10-15",
+            "task": "task-v1 (Tiny To-Do)",
+            "tool_version": "GitHub Copilot CLI 1.0.98",
+            "model": "gpt-6-luna (Copilot Free default)",
+            "breakdown": {
+              "task_success": 40,
+              "output_quality": 24,
+              "speed_effort": 15,
+              "cost_free_tier": 10,
+              "developer_experience": 10
+            },
+            "evidence": "Passed 10/10 automated checks in 38 s with no interventions on Copilot Free. -1 quality: the checkbox accessibility label always says 'Mark as complete', even for completed tasks."
+          }
+        },
+        {
+          "name": "Cursor",
+          "url": "https://cursor.com",
+          "free_tier": "Yes",
+          "pricing": "Free Hobby plan + paid plans",
+          "description": "AI-first code editor with an agent that can plan, edit and run code across your project.",
+          "status": "Tested",
+          "score": 97,
+          "test": {
+            "date": "2026-10-15",
+            "task": "task-v1 (Tiny To-Do)",
+            "tool_version": "Cursor CLI (cursor-agent) 2026.10.14-941492e",
+            "model": "Composer 2.5 (Cursor free account default)",
+            "breakdown": {
+              "task_success": 40,
+              "output_quality": 23,
+              "speed_effort": 15,
+              "cost_free_tier": 10,
+              "developer_experience": 9
+            },
+            "evidence": "Passed 10/10 automated checks in 37 s with 1 prompt and no interventions on a free Cursor account (the web Cloud Agents need Premium; the CLI did not). -1 quality: task IDs use crypto.randomUUID(), which fails outside secure contexts (e.g. plain http on a LAN IP). -1: the checkbox accessibility label is always 'Mark task complete'. -1 DX: separate browser login step."
+          }
+        },
+        {
+          "name": "Cline",
+          "url": "https://cline.bot",
+          "free_tier": "Yes",
+          "pricing": "Free, open source (you pay for your own model API usage)",
+          "description": "Open-source autonomous coding agent that runs inside VS Code.",
+          "status": "Tested",
+          "score": 95,
+          "test": {
+            "date": "2026-10-16",
+            "task": "task-v1 (Tiny To-Do)",
+            "tool_version": "Cline CLI 3.0.72",
+            "model": "gemini-3.8-flash (Gemini API free tier)",
+            "breakdown": {
+              "task_success": 40,
+              "output_quality": 25,
+              "speed_effort": 12,
+              "cost_free_tier": 10,
+              "developer_experience": 8
+            },
+            "evidence": "Passed 10/10 automated checks. First attempt hit Gemini high demand (no files); re-run completed the app in 312 s (then hit the free-tier 20-request/day quota after Cline's own self-test passed, before a final summary). Quality 25: clean IIFE, try/catch on storage, textContent escaping, dynamic aria-labels. Speed \u22123 for the high-demand re-run. DX \u22122: no final summary because of quota."
+          }
+        },
+        {
+          "name": "Aider",
+          "url": "https://aider.chat",
+          "free_tier": "Yes",
+          "pricing": "Free, open source (you pay for your own model API usage)",
+          "description": "Open-source AI pair programmer that edits code in your local git repo from the terminal.",
+          "score": 94,
+          "status": "Tested",
+          "test": {
+            "date": "2026-10-15",
+            "task": "task-v1 (Tiny To-Do)",
+            "tool_version": "Aider 0.86.2",
+            "model": "gemini-3.8-flash (Gemini API free tier)",
+            "breakdown": {
+              "task_success": 40,
+              "output_quality": 22,
+              "speed_effort": 15,
+              "cost_free_tier": 10,
+              "developer_experience": 7
+            },
+            "evidence": "Passed 10/10 automated checks in 26 s (1 model request, no interventions). -3 quality: README cut off and 2 stray files created from README code snippets. -3 DX: pip install failed on Python 3.13 (worked with Python 3.12) and the stray files."
+          }
+        },
+        {
+          "name": "Bolt.new",
+          "url": "https://bolt.new",
+          "free_tier": "Yes",
+          "pricing": "Free plan + paid plans",
+          "description": "Browser-based AI app builder that generates, runs and deploys full-stack web apps from prompts.",
+          "status": "Tested",
+          "score": 94,
+          "test": {
+            "date": "2026-10-15",
+            "task": "task-v1 (Tiny To-Do)",
+            "tool_version": "Bolt.new web app (Free plan, Standard mode)",
+            "model": "Bolt.new default model (Free plan; model name not shown)",
+            "breakdown": {
+              "task_success": 40,
+              "output_quality": 21,
+              "speed_effort": 15,
+              "cost_free_tier": 10,
+              "developer_experience": 8
+            },
+            "evidence": "Passed 10/10 checks in about 2 minutes with 1 prompt and no interventions on the Free plan. 9 checks verified in Bolt's live preview; the reload/persistence check (C8) was verified on the exported project because the preview did not come back after a page reload. -2 quality: left Vite starter files (package.json, package-lock.json, .bolt) and an unused escapeHtml function. -2: no accessibility labels on the input, checkbox or icon-only delete button. -2 DX: the preview showed a stale starter page until refreshed and broke on reload."
+          }
+        },
+        {
+          "name": "Claude Code",
+          "url": "https://www.anthropic.com/claude-code",
+          "free_tier": "No",
+          "pricing": "Paid Claude plan or Anthropic API usage",
+          "description": "Anthropic's agentic coding tool that works in your terminal, IDE and codebase.",
+          "status": "Not yet tested",
+          "score": null
+        },
+        {
+          "name": "OpenAI Codex",
+          "url": "https://openai.com/codex/",
+          "free_tier": "No",
+          "pricing": "Included with paid ChatGPT plans (from $20/mo Plus)",
+          "description": "OpenAI's coding agent across ChatGPT, the cloud, the IDE extension and the terminal.",
+          "status": "Not yet tested",
+          "score": null
+        },
+        {
+          "name": "Replit",
+          "url": "https://replit.com",
+          "free_tier": "Yes",
+          "pricing": "Free starter usage + paid plans (Core from $20/mo)",
+          "description": "Cloud development platform whose Replit Agent builds and deploys apps from a prompt.",
+          "status": "Untested: login blocked from our test machine",
+          "score": null,
+          "test_note": "Replit's login (GitHub and email/password) failed from our test machine, so it could not run the task. No score."
+        },
+        {
+          "name": "Windsurf",
+          "url": "https://windsurf.com",
+          "free_tier": "Yes",
+          "pricing": "Free plan + paid plans",
+          "description": "AI code editor with an agentic assistant (Cascade) for multi-file changes.",
+          "status": "Untested: free credits exhausted",
+          "score": null,
+          "test_note": "Windsurf sign-up now goes through Devin (Cognition), and the free Devin account reported its free credits as already used up, so no task could run at $0. No score."
+        },
+        {
+          "name": "Zed",
+          "url": "https://zed.dev",
+          "free_tier": "Yes",
+          "pricing": "Free editor + paid AI plans",
+          "description": "Fast open-source code editor with built-in AI agent editing.",
+          "status": "Not yet tested",
+          "score": null
+        }
+      ],
+      "model_note": "Model differs between tools and affects scores."
+    }
+  ],
+  "new_this_week": [
+    {
+      "name": "withHuman",
+      "url": "https://withhuman.ai",
+      "description": "Open-source human approval layer for AI agents (Claude Code, Codex, LangGraph and more). Intercepts tool calls; self-host or hosted. Product Hunt launch Oct 15, 2026.",
+      "found": "2026-10-16"
+    },
+    {
+      "name": "Navige",
+      "url": "https://navige.ai",
+      "description": "Sits between agents and paid models/tools to cut runaway spend (routing, cache, loop guards). Free start. Product Hunt #2 on Oct 15, 2026.",
+      "found": "2026-10-16"
+    },
+    {
+      "name": "Tiden",
+      "url": "https://tiden.ai",
+      "description": "Intent verification for coding agents (Claude Code, Cursor, Codex, Copilot). Specs versioned like code; 14-day free trial. Live with install script.",
+      "found": "2026-10-16"
+    },
+    {
+      "name": "Graphicle",
+      "url": "https://github.com/Graphicle-AI/graphicle",
+      "description": "Local Rust code-graph + memory for coding agents (Claude Code, Codex, Cursor, MCP). No account. Apache-2.0. Show HN Oct 14, 2026.",
+      "found": "2026-10-16"
+    },
+    {
+      "name": "OpenUI 1.0",
+      "url": "https://openui.com",
+      "description": "Open standard for generative UI (React/Vue/Svelte/Angular runtimes). MIT on GitHub (thesysdev/openui). Useful for agent-built interfaces.",
+      "found": "2026-10-16"
+    }
+  ]
+}

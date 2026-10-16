@@ -1,0 +1,12 @@
+fetch('data/tools.json').then(r=>r.json()).then(d=>{
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const lb=document.getElementById('lb');
+ if(lb&&!lb.children.length){const b=d.leaderboards[0];document.getElementById('lbnote').textContent=b.note;
+  lb.innerHTML=b.tools.map(t=>`<tr><td><a href="${esc(t.url)}" rel="noopener" target="_blank"><b>${esc(t.name)}</b></a><div class="mut">${esc(t.description)}</div></td><td class="${t.free_tier==='Yes'?'yes':'no'}">${esc(t.free_tier)}</td><td class="hide-sm mut">${esc(t.pricing)}</td><td class="mut">Not yet tested</td></tr>`).join('');}
+ const nw=document.getElementById('new');
+ if(nw){nw.innerHTML=d.new_this_week.length?d.new_this_week.map(t=>{
+   const found=t.found?`<div class="mut sm">Found ${esc(t.found)}</div>`:'';
+   return `<div class="card"><a href="${esc(t.url)}" rel="noopener" target="_blank"><b>${esc(t.name)}</b></a><div class="mut">${esc(t.description)}</div>${found}</div>`;
+ }).join(''):'<p class="mut">Our discovery agents start scanning launches this week. New tools will appear here, with the date we found them.</p>';}
+ const u=document.getElementById('upd');if(u)u.textContent=d.updated;
+});
